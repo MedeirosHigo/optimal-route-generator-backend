@@ -11,10 +11,14 @@ import org.springframework.context.annotation.Configuration;
 public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
-        return new OpenAPI().info(new Info().title("Custom OpenAPI").version("1.0"));
+        return new OpenAPI()
+            .addServersItem(new io.swagger.v3.oas.models.servers.Server()
+            .url("/"))
+            .info(new Info().title("Custom OpenAPI").version("1.0"));
     }
     @Bean
     public GroupedOpenApi customGroup() {
         return GroupedOpenApi.builder().group("public").pathsToMatch("/api/**").build();
     }
+    
 }
