@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/kruskal/")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class RoutingKruskalController {
 
     private final RoutingKruskalService routingKruskalService;
